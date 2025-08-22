@@ -2,40 +2,39 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen grid place-items-center p-10">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white text-gray-900 p-8">
       <main className="text-center space-y-6">
-        <h1 className="text-4xl sm:text-5xl font-bold">
+        <h1 className="text-4xl sm:text-6xl font-extrabold">
           🚀 Welcome to <span className="text-blue-600">YourZyra</span>
         </h1>
-        <p className="text-neutral-600">
+        <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
           Clean, personal, and fast. This is our first live deploy.
         </p>
-
-        <div className="flex items-center justify-center gap-3">
+        <div className="flex gap-4 justify-center">
           <a
-            className="rounded-full bg-black text-white px-5 py-2 hover:opacity-80"
             href="https://yourzyra.com"
+            className="px-6 py-3 rounded-full bg-black text-white font-medium hover:bg-gray-800 transition"
           >
-            Visit production
+            Visit Production
           </a>
           <a
-            className="rounded-full border border-black/15 px-5 py-2 hover:bg-black/5"
             href="https://github.com/Jaydoo88/yourzyra"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            className="px-6 py-3 rounded-full border border-gray-300 hover:bg-gray-100 transition"
           >
-            GitHub repo
+            GitHub Repo
           </a>
         </div>
-
-        <Image
-          className="mx-auto opacity-80"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={140}
-          height={30}
-          priority
-        />
+        <div className="pt-10">
+          <Image
+            src="/next.svg"
+            alt="Next.js Logo"
+            width={150}
+            height={40}
+            priority
+          />
+        </div>
       </main>
     </div>
   );
