@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { prisma } from '../../lib/prisma'
 
-// Shape of the JSON we return
+// Response shapes
 type HealthOK = { ok: true }
 type HealthFail = { ok: false; error: string }
 
