@@ -1,8 +1,11 @@
 // deploy bump
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { prisma } from '../../lib/prisma'
+import { PrismaClient } from '@prisma/client'
+import { prisma as sharedPrisma } from '../../lib/prisma'
 
-// Response shapes
+// Fallback: if the import didn't initialize for any reason, create one here.
+const prisma = sharedPrisma ?? new PrismaClient()
+
 type HealthOK = { ok: true }
 type HealthFail = { ok: false; error: string }
 
@@ -17,4 +20,9 @@ export default async function handler(
     const msg = e instanceof Error ? e.message : String(e)
     return res.status(500).json({ ok: false, error: msg })
   }
+}
+
+// Ensure Node runtime (not Edge)
+export const config = {
+  runtime: 'nodejs',
 }
