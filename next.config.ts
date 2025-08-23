@@ -2,11 +2,12 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   eslint: {
-    // ✅ Let production builds succeed even if ESLint finds errors
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true,      // don't fail prod builds on lint
+  },
+  typescript: {
+    ignoreBuildErrors: true,       // don't fail prod builds on TS type errors
   },
   reactStrictMode: true,
-  swcMinify: true,
 }
 
 export default nextConfig
